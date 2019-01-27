@@ -1,20 +1,24 @@
 import Layout from "../components/MyLayout.js";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
+import css from "../style.css";
 
 const Index = props => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(({ show }) => (
-        <li key={show.id}>
-          <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </Layout>
+  <body>
+    <Layout>
+      <h1 className={css.example}>Batman TV Shows</h1>
+      <ul>
+        {props.shows.map(({ show }) => (
+          <li key={show.id}>
+            <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
+              <a>{show.name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <p>Work hard play hard.</p>
+    </Layout>
+  </body>
 );
 
 Index.getInitialProps = async function() {

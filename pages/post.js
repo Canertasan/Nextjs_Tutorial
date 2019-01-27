@@ -1,9 +1,10 @@
 import Layout from "../components/MyLayout.js";
 import fetch from "isomorphic-unfetch";
+import css from "../style.css";
 
 const Post = props => (
   <Layout>
-    <h1>{props.show.name}</h1>
+    <h1 >{props.show.name}</h1>
     <p>{props.show.summary.replace(/<[/]?p>/g, "")}</p>
     <img src={props.show.image.medium} />
   </Layout>
